@@ -6,6 +6,8 @@ import (
 	"google.golang.org/protobuf/compiler/protogen"
 )
 
+var tmpl = getTemplate()
+
 // generateFile processes a single proto file.
 func generateFile(gen *protogen.Plugin, f *protogen.File) {
 	// capture to bytes buffer

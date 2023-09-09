@@ -23,6 +23,11 @@ message Address {
   string city = 2;
   string state = 3;
   string country = 4;
+
+  message AddressLine {
+    string line = 1;
+  }
+  AddressLine address_line = 5;
 }
 
 // Sample message representing our test proto.
