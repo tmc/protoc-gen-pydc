@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"io/ioutil"
 
 	"google.golang.org/protobuf/compiler/protogen"
 )
@@ -17,9 +16,16 @@ func generateFile(gen *protogen.Plugin, f *protogen.File) {
 		gen.Error(err)
 		return
 	}
-	// write out python file:
-	if err := ioutil.WriteFile(f.GeneratedFilenamePrefix+".py", buf.Bytes(), 0600); err != nil {
+
+	gf := gen.NewGeneratedFile(f.GeneratedFilenamePrefix+".py", f.GoImportPath)
+	_, err := gf.Write(buf.Bytes())
+	if err != nil {
 		gen.Error(err)
 		return
 	}
+	// // write out python file:
+	// if err := ioutil.WriteFile(f.GeneratedFilenamePrefix+".py", buf.Bytes(), 0600); err != nil {
+	// 	gen.Error(err)
+	// 	return
+	// }
 }
