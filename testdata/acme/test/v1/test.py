@@ -16,51 +16,51 @@ class Status(Enum):
 
 @dataclass
 class Address:
-    street: str 
-    city: str 
-    state: str 
-    country: str 
-    address_line: Address_AddressLine 
+    street: str
+    city: str
+    state: str
+    country: str
+    address_line: Address_AddressLine
 
 
 @dataclass
 class Address_AddressLine:
-    line: str 
+    line: str
 
 
 @dataclass
 class TestMessage:
-    id: str 
-    name: str 
-    items: str 
+    id: str
+    name: str
+    items: str
     status: Status # Enumeration field
     address: Address # Nested message
     metadata: Dict[str, str] # Map field
-    text_payload: str 
-    binary_payload: bytes 
+    text_payload: str
+    binary_payload: bytes
 
 
 @dataclass
 class TestMessage_MetadataEntry:
-    key: str 
-    value: str 
+    key: str
+    value: str
 
 
 @dataclass
 class GetTestMessageRequest:
-    id: str 
+    id: str
 
 
 @dataclass
 class GetTestMessageResponse:
-    message: TestMessage 
+    message: TestMessage
 
 
 @dataclass
 class CreateTestMessageRequest:
-    message: TestMessage 
+    message: TestMessage
 
 
 @dataclass
 class CreateTestMessageResponse:
-    message: TestMessage 
+    message: TestMessage

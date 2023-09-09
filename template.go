@@ -45,11 +45,11 @@ func getTemplate() *template.Template {
 			// strip "// " from the beginning of each line
 			c := strings.TrimPrefix(string(comments), "// ")
 			c = strings.TrimSpace(c)
+			if c == "" {
+				return ""
 
-			if c != "" {
-				return fmt.Sprintf("# %s", c)
 			}
-			return ""
+			return fmt.Sprintf(" # %s", c)
 		},
 		"fieldType": func(field *protogen.Field) string {
 			// Check if the field is a map
