@@ -64,3 +64,4 @@ class CreateTestMessageRequest:
 @dataclass
 class CreateTestMessageResponse:
     message: TestMessage
+
